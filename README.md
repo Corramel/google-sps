@@ -1,3 +1,10 @@
+# About Me
+Did you know that bats are actually not blind? They can see. Also, they can swim. It's very freaky. 
+This counts as an about me because I'm absolutely bats. About memes. Bats about memes.
+
+
+
+
 # Google Software Product Sprint
 
 This repo contains the projects you'll work on throughout SPS.
