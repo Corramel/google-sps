@@ -5,6 +5,7 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="servletScript.js"></script>
   </head>
   <body>
       <nav id="navExternal">
@@ -32,9 +33,11 @@
 
       <p>I like taking photographs of moments and places I find beautiful. (Will post pictures later)</p> <!--TODO:Upload pictures from phone-->
       <p>I have worked on a number of projects, the one which I am most proud of is Lethe, a Discord bot originally forked from another user, where I updated it and fixed several bugs, eventually turning the bot into something more than what the original owner intended.</p>
-      <p>Click <a href="/funny">here</a> to see content created by server code.</p>
+      <p>Click <a href="/hello">here</a> to see content created by server code.</p>
       <p>Click here to get a random message:</p>
       <button onclick="addRandomGreeting()">Hello</button>
+      <button onclick="fetchString()">Click me</button>
+      <p id="linux"></p>
       <div id="greeting-container"></div>
       
     </div>
