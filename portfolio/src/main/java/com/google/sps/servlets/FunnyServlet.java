@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 /** Handles request sent to /funny */
 @WebServlet("/funny")
 public class FunnyServlet extends HttpServlet {
-  private ArrayList<String> jokeArray = new ArrayList<String>();
+  private static final ArrayList<String> jokeArray = new ArrayList<String>();
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     if(jokeArray.isEmpty()) {
