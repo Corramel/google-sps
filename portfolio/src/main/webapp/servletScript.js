@@ -1,13 +1,12 @@
-/*
-* Calls fetch() and adds response to the webpage
-*/
-
+/**
+ * Fetches a string from the server
+ */
 async function fetchString(){
     const responseFromServer = await fetch('/funny');
     const jsonFromServ = await responseFromServer.json();
 
     console.log(jsonFromServ);
 
-    const linuxParagraph = document.getElementById("linux");
-    linuxParagraph.innerText = jsonFromServ[Math.floor(Math.random() * jsonFromServ.length)];
+    const jokeParagraph = document.getElementById("joke");
+    jokeParagraph.innerText = jsonFromServ[Math.floor(Math.random() * jsonFromServ.length)];
 }
