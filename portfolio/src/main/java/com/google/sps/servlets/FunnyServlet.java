@@ -2,6 +2,7 @@ package com.google.sps.servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +14,7 @@ import com.google.gson.Gson;
 /** Handles request sent to /funny */
 @WebServlet("/funny")
 public class FunnyServlet extends HttpServlet {
-  private static final ArrayList<String> jokeArray = new ArrayList<String>();
+  private static final List<String> jokeArray = new ArrayList<String>();
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     if(jokeArray.isEmpty()) {
@@ -44,7 +45,7 @@ public class FunnyServlet extends HttpServlet {
       addJoke("Oh. That moment when you realize who sang 'Take On Me'");
   }
 
-  private String toGson(ArrayList<String> input) {
+  private String toGson(List<String> input) {
         Gson gson = new Gson();
         String json = gson.toJson(input);
         return json;

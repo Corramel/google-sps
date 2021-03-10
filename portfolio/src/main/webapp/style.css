@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body {
     background-color: rgb(255, 245, 238);
+    font-family: 'Roboto', sans-serif;
 }
 
 .pImg {
@@ -53,7 +56,12 @@ a {
   margin-top: 20px;
 }
 
-.images img {
+#images img, .images img { /* Class returns an error? */
     max-width:400px;
     max-height:auto;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 10px;
 }
+
