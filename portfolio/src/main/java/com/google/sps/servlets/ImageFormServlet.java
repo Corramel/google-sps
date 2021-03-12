@@ -8,6 +8,8 @@ import com.google.cloud.storage.StorageOptions;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
@@ -37,7 +39,7 @@ public class ImageFormServlet extends HttpServlet {
         InputStream fileInputStream = filePart.getInputStream();
         
         //Upload file
-        String uploadedFileUrl = uploadToCloudStorage(fileName, fileInputStream);
+        String uploadedFileUrl = uploadToCloudStorage(fileName, fileInputStream, message);
 
         PrintWriter out = response.getWriter();
         out.println("<p>Here's the image you uploaded!</p>");
@@ -53,14 +55,16 @@ public class ImageFormServlet extends HttpServlet {
      * @param inputStream Assuming this is the image being streamed in
      * @return Link to file (URL)
      */
-    private static String uploadToCloudStorage(String fileName, InputStream inputStream) {
+    private static String uploadToCloudStorage(String fileName, InputStream inputStream, String tag) {
         String projectID = "jgreene-sps-spring21";
         String bucketName ="jgreene-sps-spring21.appspot.com";
+        Map<String, String> newMetadata = new HashMap<String, String>();
+        newMetadata.put("tag",tag);
         Storage storage = 
             StorageOptions.newBuilder().setProjectId(projectID).build().getService();
         BlobId blobId = BlobId.of(bucketName, fileName);
-        BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();
-        Blob blob = storage.create(blobInfo, inputStream);
+        BlobInfo blobInfo = BlobInfo.newBuilder(blobId).setMetadata(newMetadata).build();
+        Blob blob = storage.create(blobInfo, inputStream);        
 
         return blob.getMediaLink();
 

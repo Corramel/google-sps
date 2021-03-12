@@ -56,6 +56,9 @@ a {
   margin-top: 20px;
 }
 
+#images {
+    text-align:center;
+}
 #images img, .images img { /* Class returns an error? */
     max-width:400px;
     max-height:auto;
